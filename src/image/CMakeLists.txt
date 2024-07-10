@@ -1,0 +1,1 @@
+target_sources(kakimasu PRIVATE image.cc)

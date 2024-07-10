@@ -7,3 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_compile_options(-Wall -Werror -Wextra -Wold-style-cast -pedantic)
 
 include_directories(include src)
+
+add_library(kakimasu SHARED)
+
+add_subdirectory(src)
