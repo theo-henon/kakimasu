@@ -10,9 +10,9 @@ namespace kakimasu::image
         Image(uint32_t width, uint32_t height);
         virtual ~Image() = default;
 
-        uint32_t get_width() const;
-        uint32_t get_height() const;
-        virtual int get_bit_depth() const = 0;
+        [[nodiscard]] uint32_t get_width() const;
+        [[nodiscard]] uint32_t get_height() const;
+        [[nodiscard]] virtual int get_bit_depth() const = 0;
 
     private:
         uint32_t width_;
