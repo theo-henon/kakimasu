@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pixmap_image.hh"
+#include "rgb24_color.hh"
 
 namespace kakimasu::image
 {
@@ -16,5 +17,7 @@ namespace kakimasu::image
         void set_red(uint32_t x, uint32_t y, uint8_t value);
         void set_green(uint32_t x, uint32_t y, uint8_t value);
         void set_blue(uint32_t x, uint32_t y, uint8_t value);
+        [[nodiscard]] Rgb24Color get_color(uint32_t x, uint32_t y) const;
+        void set_color(uint32_t x, uint32_t y, Rgb24Color color);
     };
 } // namespace kakimasu::image

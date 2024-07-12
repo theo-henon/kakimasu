@@ -1,4 +1,5 @@
 #include <kakimasu/image/rgb24_image.hh>
+#include "kakimasu/image/rgb24_color.hh"
 
 namespace kakimasu::image
 {
@@ -35,4 +36,20 @@ namespace kakimasu::image
     {
         bytes_[get_width() * y + x + 2] = value;
     }
+
+    Rgb24Color Rgb24Image::get_color(uint32_t x, uint32_t y) const
+    {
+        size_t pixel_pos = get_width() * y + x;
+        return { bytes_[pixel_pos], bytes_[pixel_pos + 1],
+                 bytes_[pixel_pos + 2] };
+    }
+
+    void Rgb24Image::set_color(uint32_t x, uint32_t y, Rgb24Color color)
+    {
+        size_t pixel_pos = get_width() * y + x;
+        bytes_[pixel_pos] = color.r;
+        bytes_[pixel_pos + 1] = color.g;
+        bytes_[pixel_pos + 2] = color.b;
+    }
+
 } // namespace kakimasu::image
