@@ -15,8 +15,8 @@ namespace kakimasu::image
         PixmapImage(uint32_t width, uint32_t height);
         ~PixmapImage() override = default;
 
-        [[nodiscard]] int get_bit_depth() const override;
-        [[nodiscard]] int get_num_channels() const;
+        [[nodiscard]] inline int get_bit_depth() const override;
+        [[nodiscard]] inline int get_num_channels() const;
 
     protected:
         std::vector<uint8_t> bytes_;
