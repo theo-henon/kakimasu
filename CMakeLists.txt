@@ -11,3 +11,4 @@ include_directories(include src)
 add_library(kakimasu SHARED)
 
 add_subdirectory(src)
+add_subdirectory(examples)
