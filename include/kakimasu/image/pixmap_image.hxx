@@ -9,7 +9,7 @@ namespace kakimasu::image
     PixmapImage<NumChannels, BDepth>::PixmapImage(uint32_t width,
                                                   uint32_t height)
         : Image(width, height)
-        , bytes_(width * height * NumChannels * static_cast<int>(BDepth) / 8)
+        , bytes_(width * height * NumChannels * static_cast<int>(BDepth))
     {}
 
     template <int NumChannels, BitDepth BDepth>
