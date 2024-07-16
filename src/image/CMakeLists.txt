@@ -1,1 +1,3 @@
-target_sources(kakimasu PRIVATE)
+target_sources(kakimasu PRIVATE
+        rgb24_color.cc
+)

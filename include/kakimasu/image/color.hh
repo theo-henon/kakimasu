@@ -10,6 +10,6 @@ namespace kakimasu::image
     public:
         [[nodiscard]] virtual int get_num_channels() const = 0;
         virtual ChannelType get_channel(int index) const = 0;
-        virtual void set_channel(int index, ChannelType value) const = 0;
+        virtual void set_channel(int index, ChannelType value) = 0;
     };
 } // namespace kakimasu::image
