@@ -11,6 +11,7 @@ namespace kakimasu::image
     public:
         Rgb24Color();
         Rgb24Color(uint8_t red, uint8_t green, uint8_t blue);
+        ~Rgb24Color() override = default;
 
         [[nodiscard]] int get_num_channels() const override;
         [[nodiscard]] uint8_t get_channel(int index) const override;
