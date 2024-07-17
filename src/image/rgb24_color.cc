@@ -83,4 +83,11 @@ namespace kakimasu::image
     {
         blue_ = value;
     }
+
+    std::ostream& operator<<(std::ostream& os, const Rgb24Color& color)
+    {
+        return os << "(R: " << static_cast<int>(color.red_)
+                  << ", G: " << static_cast<int>(color.green_)
+                  << ", B: " << static_cast<int>(color.blue_) << ")";
+    }
 } // namespace kakimasu::image

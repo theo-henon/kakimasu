@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <ostream>
 
 #include "color.hh"
 
@@ -22,6 +23,8 @@ namespace kakimasu::image
         void set_green(uint8_t value);
         [[nodiscard]] uint8_t get_blue() const;
         void set_blue(uint8_t value);
+
+        friend std::ostream& operator<<(std::ostream& os, const Rgb24Color& color);
 
     private:
         uint8_t red_;
