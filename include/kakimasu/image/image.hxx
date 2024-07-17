@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdexcept>
+
 #include "image.hh"
 
 namespace kakimasu::image
