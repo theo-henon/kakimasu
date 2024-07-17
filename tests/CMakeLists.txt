@@ -11,6 +11,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 add_executable(kakimasu_tests
         rgb24_image_tests.cc
+        rgb24_color_tests.cc
 )
 target_link_libraries(kakimasu_tests PRIVATE
         kakimasu
