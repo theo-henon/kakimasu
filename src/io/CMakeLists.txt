@@ -1,0 +1,1 @@
+target_sources(kakimasu PRIVATE portable_anymap_writer.cc)
