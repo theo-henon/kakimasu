@@ -1,0 +1,2 @@
+add_executable(portable_any_map_io_usage portable_anymap_io_usage.cc)
+target_link_libraries(portable_any_map_io_usage PRIVATE kakimasu)
