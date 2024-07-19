@@ -6,7 +6,7 @@
 
 namespace kakimasu::io
 {
-    class PortableAnymapWriter : public ImageWriter<image::Rgb24Image>
+    class PortableAnymapWriter : public ImageWriter
     {
     public:
         explicit PortableAnymapWriter(std::ostream& os);

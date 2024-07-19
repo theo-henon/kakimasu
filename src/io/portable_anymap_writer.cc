@@ -3,7 +3,7 @@
 namespace kakimasu::io
 {
     PortableAnymapWriter::PortableAnymapWriter(std::ostream& os)
-        : ImageWriter<image::Rgb24Image>(os)
+        : ImageWriter(os)
     {}
 
     void PortableAnymapWriter::write(const image::Rgb24Image& img)
