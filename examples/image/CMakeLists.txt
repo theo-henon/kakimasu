@@ -1,2 +1,5 @@
 add_executable(rgb24_image_usage rgb24_image_usage.cc)
 target_link_libraries(rgb24_image_usage PRIVATE kakimasu)
+
+add_executable(grayscale8_image_usage grayscale8_image_usage.cc)
+target_link_libraries(grayscale8_image_usage PRIVATE kakimasu)
