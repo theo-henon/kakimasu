@@ -1,4 +1,6 @@
 target_sources(kakimasu PRIVATE
         rgb24_color.cc
         rgb24_image.cc
+        grayscale8_color.cc
+        grayscale8_image.cc
 )
