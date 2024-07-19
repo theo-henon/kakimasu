@@ -1,5 +1,6 @@
 #pragma once
 
+#include <kakimasu/image/grayscale8_image.hh>
 #include <kakimasu/image/rgb24_image.hh>
 #include <ostream>
 
@@ -12,6 +13,7 @@ namespace kakimasu::io
         virtual ~ImageWriter() = default;
 
         virtual void write(const image::Rgb24Image& img) = 0;
+        virtual void write(const image::Grayscale8Image& img) = 0;
 
     protected:
         std::ostream& os_;
