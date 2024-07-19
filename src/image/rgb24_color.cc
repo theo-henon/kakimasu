@@ -32,7 +32,7 @@ namespace kakimasu::image
         case 2:
             return blue_;
         default:
-            throw std::out_of_range("Invalid channel index");
+            throw std::out_of_range("Channel index out of range");
         }
     }
 
@@ -50,7 +50,7 @@ namespace kakimasu::image
             blue_ = value;
             break;
         default:
-            throw std::out_of_range("Invalid channel index");
+            throw std::out_of_range("Channel index out of range");
         }
     }
 
