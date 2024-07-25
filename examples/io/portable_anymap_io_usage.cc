@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <kakimasu/io/portable_anymap_reader.hh>
 #include <kakimasu/io/portable_anymap_writer.hh>
 
 namespace kimg = kakimasu::image;
@@ -26,4 +27,14 @@ int main()
     // Write image in output streams
     stdout_writer.write(img);
     file_writer.write(img);
+
+    // Close file
+    file.close();
+
+    // Create a reader for previously written image
+    std::ifstream previous_file("wikipedia.pnm");
+    kio::PortableAnymapReader reader(previous_file);
+    auto img_read = reader.read();
+    std::cout << "\nImage read:\n";
+    stdout_writer.write(*dynamic_cast<kimg::Rgb24Image*>(img_read.get()));
 }
