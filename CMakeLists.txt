@@ -8,7 +8,9 @@ add_compile_options(-Wall -Werror -Wextra -Wold-style-cast -pedantic)
 
 include_directories(include src)
 
-add_library(kakimasu SHARED)
+add_library(kakimasu SHARED src/version.cc)
+
+target_link_libraries(kakimasu PUBLIC image io)
 
 add_subdirectory(src)
 add_subdirectory(examples)

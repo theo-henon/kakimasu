@@ -9,10 +9,8 @@
 
 namespace kakimasu
 {
-    inline uint get_version_major();
-    inline uint get_version_minor();
-    inline uint get_version_patch();
-    inline std::string get_version_string();
+    uint get_version_major();
+    uint get_version_minor();
+    uint get_version_patch();
+    std::string get_version_string();
 } // namespace kakimasu
-
-#include "version.hxx"

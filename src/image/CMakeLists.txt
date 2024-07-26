@@ -1,4 +1,4 @@
-target_sources(kakimasu PRIVATE
+add_library(image
         abstract_image.cc
         rgb24_color.cc
         rgb24_image.cc
