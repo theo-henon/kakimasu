@@ -1,5 +1,7 @@
 #pragma once
 
+#include <kakimasu/image/bitmap_image.hh>
+
 #include "image_reader.hh"
 
 namespace kakimasu::io
@@ -25,6 +27,6 @@ namespace kakimasu::io
         void read_color_depth();
         std::unique_ptr<image::Rgb24Image> read_rgb24();
         std::unique_ptr<image::Grayscale8Image> read_grayscale8();
-        // TODO: Declare read_bitmap member function
+        std::unique_ptr<image::BitmapImage> read_bitmap();
     };
 } // namespace kakimasu::io

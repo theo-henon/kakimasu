@@ -11,7 +11,11 @@ namespace kakimasu::io
     public:
         explicit PortableAnymapWriter(std::ostream& os);
 
-        void write(const image::Rgb24Image& img) override;
-        void write(const image::Grayscale8Image& img) override;
+        void write(const image::Rgb24Image* img) override;
+        void write(const image::Grayscale8Image* img) override;
+        void write(const image::BitmapImage* img) override;
+
+    private:
+
     };
 } // namespace kakimasu::io

@@ -18,10 +18,7 @@ namespace kakimasu::io
         read_dimensions();
 
         if (magic_number_ == "P1")
-        {
-            // TODO: Implement read_bitmap
-            return nullptr;
-        }
+            return read_bitmap();
         else if (magic_number_ == "P2")
         {
             read_color_depth();
@@ -96,7 +93,48 @@ namespace kakimasu::io
     std::unique_ptr<image::Grayscale8Image>
     PortableAnymapReader::read_grayscale8()
     {
-        // TODO: Implement
-        return nullptr;
+        auto img = std::make_unique<image::Grayscale8Image>(width_, height_);
+        uint32_t row = 0;
+        read_line();
+        while (!is_.eof())
+        {
+            std::stringstream ss(line_);
+
+            uint32_t col = 0;
+            while (!ss.eof())
+            {
+                uint32_t scale = 0;
+                ss >> scale;
+                uint8_t scale8 = scale > 255 ? 255 : scale;
+                img->set_pixel(col, row, image::Grayscale8Color(scale8));
+                col++;
+            }
+            row++;
+            read_line();
+        }
+        return img;
+    }
+
+    std::unique_ptr<image::BitmapImage> PortableAnymapReader::read_bitmap()
+    {
+        auto img = std::make_unique<image::BitmapImage>(width_, height_);
+        uint32_t row = 0;
+        read_line();
+        while (!is_.eof())
+        {
+            std::stringstream ss(line_);
+
+            uint32_t col = 0;
+            while (!ss.eof())
+            {
+                bool bit = false;
+                ss >> bit;
+                img->set_pixel(col, row, bit);
+                col++;
+            }
+            row++;
+            read_line();
+        }
+        return img;
     }
 } // namespace kakimasu::io

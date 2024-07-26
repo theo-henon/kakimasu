@@ -6,44 +6,60 @@ namespace kakimasu::io
         : ImageWriter(os)
     {}
 
-    void PortableAnymapWriter::write(const image::Rgb24Image& img)
+    void PortableAnymapWriter::write(const image::Rgb24Image* img)
     {
         os_ << "P3\n";
-
-        os_ << img.get_width() << ' ' << img.get_height() << '\n';
+        os_ << img->get_width() << ' ' << img->get_height() << '\n';
         os_ << UINT8_MAX << '\n';
 
-        for (uint32_t y = 0; y < img.get_height(); y++)
+        for (uint32_t y = 0; y < img->get_height(); y++)
         {
-            for (uint32_t x = 0; x < img.get_width(); x++)
+            for (uint32_t x = 0; x < img->get_width(); x++)
             {
-                image::Rgb24Color pixel = img.get_pixel(x, y);
+                image::Rgb24Color pixel = img->get_pixel(x, y);
                 os_ << static_cast<int>(pixel.get_red()) << ' '
                     << static_cast<int>(pixel.get_green()) << ' '
                     << static_cast<int>(pixel.get_blue());
 
-                if (x < img.get_width() - 1)
+                if (x < img->get_width() - 1)
                     os_ << ' ';
             }
             os_ << '\n';
         }
     }
 
-    void PortableAnymapWriter::write(const image::Grayscale8Image& img)
+    void PortableAnymapWriter::write(const image::Grayscale8Image* img)
     {
         os_ << "P2\n";
-
-        os_ << img.get_width() << ' ' << img.get_height() << '\n';
+        os_ << img->get_width() << ' ' << img->get_height() << '\n';
         os_ << UINT8_MAX << '\n';
 
-        for (uint32_t y = 0; y < img.get_height(); y++)
+        for (uint32_t y = 0; y < img->get_height(); y++)
         {
-            for (uint32_t x = 0; x < img.get_width(); x++)
+            for (uint32_t x = 0; x < img->get_width(); x++)
             {
-                image::Grayscale8Color pixel = img.get_pixel(x, y);
+                image::Grayscale8Color pixel = img->get_pixel(x, y);
                 os_ << static_cast<int>(pixel.get_scale());
 
-                if (x < img.get_width() - 1)
+                if (x < img->get_width() - 1)
+                    os_ << ' ';
+            }
+            os_ << '\n';
+        }
+    }
+
+    void PortableAnymapWriter::write(const image::BitmapImage* img)
+    {
+        os_ << "P1\n";
+        os_ << img->get_width() << ' ' << img->get_height() << '\n';
+
+        for (uint32_t y = 0; y < img->get_height(); y++)
+        {
+            for (uint32_t x = 0; x < img->get_width(); x++)
+            {
+                bool pixel = img->get_pixel(x, y);
+                os_ << pixel;
+                if (x < img->get_width() - 1)
                     os_ << ' ';
             }
             os_ << '\n';
